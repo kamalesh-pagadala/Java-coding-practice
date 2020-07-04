@@ -14,9 +14,9 @@ public class LongestPalindromicSubstring {
 
         boolean[][] palindromic = new boolean[len][len];
 
-        for (int i = 0; i < len; i++) {
-            palindromic[i][i] = true;
-            for (int j = i + 1; j < len; j++) {
+        for (int j = 0; j < len;j++) {
+            palindromic[j][j] = true;
+            for (int i = 0; i < j; i++) {
                 if (s.charAt(i) == s.charAt(j) && (j - i <= 2 || palindromic[i + 1][j - 1])) {
                     palindromic[i][j] = true;
                     if (j - i + 1 > longestString) {
@@ -27,6 +27,6 @@ public class LongestPalindromicSubstring {
                 }
             }
         }
-        return s.substring(start, end);
+        return s.substring(start, end+1);
     }
 }
